@@ -1,0 +1,20 @@
+<!-- M-Pesa Payment Button -->
+<button id="mpesa-button" class="btn">Pay with M-Pesa</button>
+
+<script>
+  document.getElementById("mpesa-button").addEventListener("click", function() {
+    fetch('/mpesa-payment', {
+      method: 'POST',
+      body: JSON.stringify({
+        amount: 1000, // Example amount in KES
+        phoneNumber: 'YOUR_PHONE_NUMBER', // Customer's phone number
+      }),
+      headers: { 'Content-Type': 'application/json' },
+    })
+    .then(response => response.json())
+    .then(data => {
+      alert("Payment link sent via M-Pesa.");
+    })
+    .catch(error => console.error("M-Pesa Payment Error:", error));
+  });
+</script>
