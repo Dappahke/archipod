@@ -1,96 +1,125 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const cart = [];
+let slideIndex = 0;
+let slides = document.querySelectorAll(".slide");
 
-    // Add event listener to each "Add to Cart" button
-    document.querySelectorAll(".add-to-cart").forEach(button => {
-        button.addEventListener("click", function () {
-            const product = this.parentElement;
-            
-            // Extract product name and price from the DOM
-            const productName = this.getAttribute("data-name");
-            const productPrice = parseFloat(this.getAttribute("data-price"));
-
-            // Add product to the cart
-            cart.push({ name: productName, price: productPrice });
-
-            // Alert user and log cart content to the console
-            alert(productName + " has been added to the cart!");
-            console.log(cart);
-
-            // Update the cart display
-            updateCart();
-        });
-    });
-
-    // Function to update the cart
-    function updateCart() {
-        const cartItems = document.getElementById("cart-items");
-        const cartTotal = document.getElementById("cart-total");
-
-        // Clear the current cart content
-        cartItems.innerHTML = "";
-        let total = 0;
-
-        // Add each item to the cart display
-        cart.forEach(item => {
-            let li = document.createElement("li");
-            li.textContent = `${item.name} - $${item.price.toFixed(2)}`;
-            cartItems.appendChild(li);
-            total += item.price;
-        });
-
-        // Update the total price
-        cartTotal.textContent = total.toFixed(2);
+function showSlides(auto = true) {
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
     }
+    slideIndex++;
+    if (slideIndex > slides.length) { slideIndex = 1; }
+    slides[slideIndex - 1].style.display = "block";
 
-    // Checkout button functionality
-    document.getElementById("checkout").addEventListener("click", function () {
-        if (cart.length === 0) {
-            alert("Your cart is empty!");
-            return;
-        }
+    if (auto) {
+        setTimeout(() => showSlides(true), 5000); // Auto-change slide every 5 seconds
+    }
+}
 
-        alert("Proceeding to checkout...");
-        cart.length = 0;  // Empty the cart
-        updateCart();
+function prevSlide() {
+    slideIndex -= 2;
+    if (slideIndex < 0) slideIndex = slides.length - 1;
+    showSlides(false);
+}
+
+function nextSlide() {
+    showSlides(false);
+}
+
+// Call the function initially
+showSlides();
+
+// Menu Toggle
+function toggleMenu() {
+    let nav = document.querySelector(".nav-menu ul"); // Updated selector
+    nav.classList.toggle("active");
+}
+
+// Get elements
+const loginBtn = document.getElementById("loginBtn");
+const signupBtn = document.getElementById("signupBtn");
+const loginModal = document.getElementById("loginModal");
+const signupModal = document.getElementById("signupModal");
+const closeButtons = document.querySelectorAll(".close");
+const showSignup = document.getElementById("showSignup");
+const showLogin = document.getElementById("showLogin");
+
+// Open Modals
+if (loginBtn && signupBtn) {
+    loginBtn.addEventListener("click", () => loginModal.style.display = "flex");
+    signupBtn.addEventListener("click", () => signupModal.style.display = "flex");
+}
+
+// Close Modals
+closeButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        loginModal.style.display = "none";
+        signupModal.style.display = "none";
     });
 });
 
-const fetch = require('node-fetch');
+// Toggle Between Login & Signup
+if (showSignup && showLogin) {
+    showSignup.addEventListener("click", (e) => {
+        e.preventDefault();
+        loginModal.style.display = "none";
+        signupModal.style.display = "flex";
+    });
 
-app.post('/mpesa-payment', async (req, res) => {
-  const { amount, phoneNumber } = req.body;
+    showLogin.addEventListener("click", (e) => {
+        e.preventDefault();
+        signupModal.style.display = "none";
+        loginModal.style.display = "flex";
+    });
+}
 
-  const mpesaApiUrl = 'https://api.safaricom.co.ke/mpesa/stkpush/v1/processrequest';
-  
-  const response = await fetch(mpesaApiUrl, {
-    method: 'POST',
-    headers: {
-      'Authorization': 'Bearer ' + YOUR_ACCESS_TOKEN,
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      BusinessShortcode: 'YOUR_SHORTCODE',
-      LipaNaMpesaOnlineShortcode: 'YOUR_SHORTCODE',
-      LipaNaMpesaOnlineShortcodeKey: 'YOUR_SHORTCODE_KEY',
-      PhoneNumber: phoneNumber,
-      Amount: amount,
-      AccountReference: 'Payment Reference',
-      TransactionDesc: 'Payment for Merchandise',
-      CallBackURL: 'https://yourwebsite.com/callback',
-      CommandID: 'Buy Goods',
-      LipaNaMpesaOnlineCommand: '1',
-      shortcode: 'YOUR_SHORTCODE',
-    })
-  });
-
-  const data = await response.json();
-  res.json(data);
+// Close modal when clicking outside
+window.addEventListener("click", (e) => {
+    if (e.target === loginModal) loginModal.style.display = "none";
+    if (e.target === signupModal) signupModal.style.display = "none";
 });
 
-let headers = new Headers();
-headers.append("Authorization", "Basic ZkczcXp3ZVpzRHdMTDB5aGROOVhsSDVTU0hQUnBndXptNGswN0JnSlczUkdJQTJTOkFueDFDYkVPUTJYM3lKbkdISURFOGtjRHdOMkRKdDQzRkY4anoyelR2QlpmTTJoWllaSzBIT3FvaHRpWFQ4bGM=");
-fetch("https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials", { headers })
-  .then(response => response.text())
-  .then(result => console.log(result))
-  .catch(error => console.log(error));
+// Search Functionality
+document.getElementById("search-btn").addEventListener("click", function() {
+    let query = document.getElementById("search-input").value.trim();
+    if (query) {
+        alert("Searching for: " + query); // Replace this with actual search functionality
+    } else {
+        alert("Please enter a search term.");
+    }
+});let currentSlide = 0;
+
+function showSlide(index) {
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+    if (totalSlides === 0) {
+        console.error("No slides found!");
+        return;
+    }
+    
+    if (index >= totalSlides) {
+        currentSlide = 0;
+    } else if (index < 0) {
+        currentSlide = totalSlides - 1;
+    } else {
+        currentSlide = index;
+    }
+    
+    const slider = document.querySelector('.slider');
+    if (slider) {
+        slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+    } else {
+        console.error("Slider element not found!");
+    }
+}
+
+function nextSlide() {
+    showSlide(currentSlide + 1);
+}
+
+function prevSlide() {
+    showSlide(currentSlide - 1);
+}
+
+showSlide(currentSlide);
+document.addEventListener("DOMContentLoaded", function () {
+    showSlides();
+});
