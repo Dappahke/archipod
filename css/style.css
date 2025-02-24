@@ -198,7 +198,7 @@ nav ul li a:hover {
 /* Responsive Design */
 @media (max-width: 768px) {
   .nav-menu {
-      width: 20%;
+      width: 40%;
   }
 
   nav {
