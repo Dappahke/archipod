@@ -1,4 +1,4 @@
-/* Import Montserrat font */
+/* Import Montserrat Font */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
 
 body {
@@ -18,7 +18,7 @@ nav {
     padding: 15px 50px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     position: fixed;
-    width: 100%;
+    width: 95%;
     top: 0;
     left: 0;
     z-index: 1000;
@@ -58,6 +58,36 @@ nav ul li a:hover {
     color: #222;
 }
 
+/* Category Buttons */
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.filter-btn {
+    background-color: #ff7f00;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.filter-btn:hover {
+    background-color: #e76a00;
+    transform: scale(1.05);
+}
+
+.filter-btn.active {
+    background-color: #cc5a00;
+    font-weight: bold;
+}
+
 /* News Grid */
 .news-grid {
     display: grid;
@@ -71,11 +101,12 @@ nav ul li a:hover {
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s;
 }
 
 .news-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
 .news-card img {
@@ -91,23 +122,29 @@ nav ul li a:hover {
 .news-content h2 {
     font-size: 20px;
     margin: 0 0 10px;
+    font-weight: 600;
 }
 
 .news-content p {
     font-size: 16px;
     color: #666;
+    font-weight: 400;
 }
 
+/* Read More Button */
 .read-more {
     display: inline-block;
     margin-top: 10px;
     text-decoration: none;
     color: #ff7f00;
     font-weight: bold;
+    transition: color 0.3s, transform 0.2s;
 }
 
 .read-more:hover {
     text-decoration: underline;
+    color: #e76a00;
+    transform: scale(1.05);
 }
 
 /* Main Content */
@@ -125,4 +162,176 @@ footer {
     padding: 15px 0;
     width: 100%;
     margin-top: auto;
+    font-weight: 400;
+}
+/* Merch Page */
+.merch-header {
+    text-align: center;
+    padding: 80px 20px 40px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #222;
+}
+
+.merch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 40px 5%;
+}
+
+.merch-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.3s;
+}
+
+.merch-card:hover {
+    transform: translateY(-5px);
+}
+
+.merch-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.merch-card h2 {
+    font-size: 20px;
+    margin: 15px 0 10px;
+}
+
+.merch-card p {
+    font-size: 16px;
+    color: #666;
+}
+
+.price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ff7f00;
+}
+
+.buy-btn {
+    background-color: #ff7f00;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.buy-btn:hover {
+    background-color: #e66b00;
+}
+/* Merch Hero Section */
+.merch-hero {
+    text-align: center;
+    padding: 100px 20px;
+    background: linear-gradient(to right, #ffffff, #cac6c5);
+    color: rgb(46, 27, 27);
+}
+
+.merch-hero h1 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.merch-hero p {
+    font-size: 18px;
+    font-weight: 400;
+    max-width: 600px;
+    margin: 0 auto;
+    opacity: 0.9;
+}
+.merch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.merch-card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: center;
+    border-radius: 8px;
+    background: #fff;
+}
+
+.merch-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+    .merch-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+}
+.nav-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #333;
+    padding: 15px 20px;
+    color: white;
+}
+
+.nav-menu .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-menu ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.nav-menu ul li {
+    display: inline;
+}
+
+.nav-menu ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.menu-icon {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .nav-menu ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: #333;
+        width: 200px;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .nav-menu ul.show {
+        display: flex;
+    }
+
+    .menu-icon {
+        display: block;
+    }
 }

@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Merch | The ArchiPod</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css"> 
 </head>
 <body>
     <header>
         <nav class="nav-menu">
+            <div class="logo">The ArchiPod</div>
+            <div class="menu-icon">☰</div>
             <ul>
-              <li><a href="index.html">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="news.html">News</a></li>
                 <li><a href="merch.html">Merch</a></li>
                 <li><a href="projects.html">Projects</a></li>
@@ -22,17 +24,52 @@
         </nav>
     </header>
 
-    <main>
-        <h1>Merchandise</h1>
-        <p>Shop The ArchiPod's exclusive merch.</p>
-        <div class="merch-item">
-            <h2>ArchiPod Hoodie</h2>
-            <p>$49.99 - Limited Edition</p>
+    <section class="merch-hero">
+        <h1>Shop The ArchiPod Collection</h1>
+        <p>Explore our exclusive merchandise inspired by architecture and design.</p>
+    </section>
+
+    <section class="filter-buttons">
+        <button class="filter-btn active" data-category="all">All</button>
+        <button class="filter-btn" data-category="apparel">Apparel</button>
+        <button class="filter-btn" data-category="accessories">Accessories</button>
+        <button class="filter-btn" data-category="prints">Prints</button>
+        <button class="filter-btn" data-category="home-decor">Home Decor</button>
+    </section>
+
+    <section class="merch-grid">
+        <div class="merch-card apparel">
+            <img src="assets/images/ArchiPod T-Shirt.jpg" alt="ArchiPod T-Shirt">
+            <h2>ArchiPod T-Shirt</h2>
+            <p>KES 1,500</p>
+            <button class="buy-btn">Buy Now</button>
         </div>
-    </main>
+        
+        <div class="merch-card accessories">
+            <img src="assets/images/mug.jpg" alt="ArchiPod Mug">
+            <h2>ArchiPod Mug</h2>
+            <p>KES 800</p>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+        
+        <div class="merch-card prints">
+            <img src="assets/images/poster.jpg" alt="Architectural Tote Bag">
+            <h2>Architectural Tote Bag</h2>
+            <p>KES 1,200</p>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+        
+        <div class="merch-card home-decor">
+            <img src="assets/images/I Am An Architect_ Building Sketch Pillow.jpg" alt="Architectural Cushion">
+            <h2>Architectural Cushion</h2>
+            <p>KES 2,000</p>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+    </section>
 
     <footer>
         <p>&copy; 2025 The ArchiPod. All rights reserved.</p>
     </footer>
+    </script>  
 </body>
 </html>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>News | The ArchiPod</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css"> 
 </head>
 <body>
     <header>
@@ -21,51 +21,61 @@
                 <li><a href="about.html">About</a></li>
             </ul>
         </nav>
+    </header>
 
-        <header class="news-header">
-            <h1>Latest in Architecture</h1>
-            <p>Stay updated with the most exciting trends and innovations in architecture.</p>
-        </header>
+    <section class="news-header">
+        <h1>Latest in Architecture</h1>
+        <p>Stay updated with the most exciting trends and innovations in architecture.</p>
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-category="all">All</button>
+            <button class="filter-btn" data-category="technology">Technology</button>
+            <button class="filter-btn" data-category="sustainability">Sustainability</button>
+            <button class="filter-btn" data-category="urban">Urban Design</button>
+            <button class="filter-btn" data-category="construction">Construction</button>
+        </div>        
+    </section>
+    
+    <section class="news-grid">
+        <article class="news-card" data-category="technology">
+            <img src="assets/images/AI in Architecture.jpg" alt="AI in Architecture">
+            <h2>The Rise of AI in Architectural Design</h2>
+            <p>How artificial intelligence is reshaping the way architects conceptualize and design buildings.</p>
+            <a href="#" class="read-more">Read More</a>
+        </article>
         
-        <section class="news-grid">
-            <article class="news-card featured">
-                <img src="assets/images/AI in Architecture.jpg" alt="AI in Architecture">
-                <h2>The Rise of AI in Architectural Design</h2>
-                <p>How artificial intelligence is reshaping the way architects conceptualize and design buildings.</p>
-                <a href="#" class="read-more">Read More</a>
-            </article>
-            
-            <article class="news-card">
-                <img src="assets/images/Sustainable Skyscrapers.jpg" alt="Sustainable Skyscrapers">
-                <h2>Sustainable Skyscrapers: The Future of Urban Living</h2>
-                <p>Innovations in green architecture and how high-rise buildings are becoming more eco-friendly.</p>
-                <a href="#" class="read-more">Read More</a>
-            </article>
-            
-            <article class="news-card">
-                <img src="assets/images/Vernacular Architecture.jpg" alt="Vernacular Architecture">
-                <h2>The Revival of Vernacular Architecture</h2>
-                <p>Why architects are embracing traditional building techniques to create sustainable and culturally rich designs.</p>
-                <a href="#" class="read-more">Read More</a>
-            </article>
-            
-            <article class="news-card">
-                <img src="assets/images/3D Printed Houses.jpg" alt="3D Printed Houses">
-                <h2>3D-Printed Houses: Revolutionizing Construction</h2>
-                <p>How 3D printing is making housing more affordable and reducing construction waste.</p>
-                <a href="#" class="read-more">Read More</a>
-            </article>
-            
-            <article class="news-card">
-                <img src="assets/images/Smart Cities.jpg" alt="Smart Cities">
-                <h2>Smart Cities: How Technology is Transforming Urban Spaces</h2>
-                <p>The integration of smart technology in urban planning to enhance sustainability and efficiency.</p>
-                <a href="#" class="read-more">Read More</a>
-            </article>
-        </section>
+        <article class="news-card" data-category="sustainability">
+            <img src="assets/images/Sustainable Skyscrapers.jpg" alt="Sustainable Skyscrapers">
+            <h2>Sustainable Skyscrapers: The Future of Urban Living</h2>
+            <p>Innovations in green architecture and how high-rise buildings are becoming more eco-friendly.</p>
+            <a href="#" class="read-more">Read More</a>
+        </article>
+        
+        <article class="news-card" data-category="urban">
+            <img src="assets/images/Vernacular Architecture.jpg" alt="Vernacular Architecture">
+            <h2>The Revival of Vernacular Architecture</h2>
+            <p>Why architects are embracing traditional building techniques to create sustainable and culturally rich designs.</p>
+            <a href="#" class="read-more">Read More</a>
+        </article>
+        
+        <article class="news-card" data-category="construction">
+            <img src="assets/images/3D Printed Houses.jpg" alt="3D Printed Houses">
+            <h2>3D-Printed Houses: Revolutionizing Construction</h2>
+            <p>How 3D printing is making housing more affordable and reducing construction waste.</p>
+            <a href="#" class="read-more">Read More</a>
+        </article>
+        
+        <article class="news-card" data-category="technology">
+            <img src="assets/images/Smart Cities.jpg" alt="Smart Cities">
+            <h2>Smart Cities: How Technology is Transforming Urban Spaces</h2>
+            <p>The integration of smart technology in urban planning to enhance sustainability and efficiency.</p>
+            <a href="#" class="read-more">Read More</a>
+        </article>
+    </section>
 
     <footer>
         <p>&copy; 2025 The ArchiPod. All rights reserved.</p>
     </footer>
+
+    <script src="scripts.js"></script>  
 </body>
 </html>
