@@ -5,22 +5,22 @@ document.addEventListener("DOMContentLoaded", function () {
         // Send this token to your server for authentication.
     }
 
-    // Toggle Navigation Menu (Mobile)
-    const menu = document.querySelector('.nav-menu');
-    const menuToggle = document.getElementById('menu-toggle');
-    if (menuToggle && menu) {
-        menuToggle.addEventListener('click', () => {
-            menu.classList.toggle('active');
-        });
-    }
+    // Toggle Navigation Menu (Mobile & Burger)
+    const menu = document.querySelector(".nav-menu");
+    const menuToggle = document.getElementById("menu-toggle");
+    const burger = document.querySelector(".burger-menu");
 
-    // Burger Menu Toggle
-    function toggleMenu() {
-        const navMenu = document.querySelector(".nav-menu");
-        if (navMenu) {
-            navMenu.classList.toggle("active");
+    if ((menuToggle || burger) && menu) {
+        const toggleNav = () => menu.classList.toggle("active");
+
+        if (menuToggle) {
+            menuToggle.addEventListener("click", toggleNav);
         }
-    }    
+
+        if (burger) {
+            burger.addEventListener("click", toggleNav);
+        }
+    }
 
     // Modal Handling
     const loginModal = document.getElementById("loginModal");
@@ -105,16 +105,6 @@ document.addEventListener("DOMContentLoaded", function () {
         searchBtn.addEventListener("click", () => {
             const query = searchInput.value;
             alert(`Search functionality not implemented yet. You searched for: "${query}"`);
-        });
-    }
-});
-document.addEventListener("DOMContentLoaded", function () {
-    const burger = document.querySelector(".burger-menu");
-    const navMenu = document.querySelector(".nav-menu");
-
-    if (burger && navMenu) {
-        burger.addEventListener("click", function () {
-            navMenu.classList.toggle("active");
         });
     }
 });
