@@ -186,3 +186,74 @@ document.getElementById("project-form")?.addEventListener("submit", async functi
 document.getElementById("generate-description")?.addEventListener("click", async function () {
     alert("This feature is disabled for security reasons. Use a backend API.");
 });
+document.addEventListener("DOMContentLoaded", function () {
+    console.log("JavaScript Loaded ✅");
+
+    // Live Search
+    const searchBar = document.querySelector(".search-bar");
+    const competitionCards = document.querySelectorAll(".competition-card");
+
+    searchBar.addEventListener("input", function (e) {
+        console.log("Searching for:", e.target.value);
+        const query = e.target.value.toLowerCase();
+        competitionCards.forEach(card => {
+            const title = card.querySelector("h3").textContent.toLowerCase();
+            card.style.display = title.includes(query) ? "block" : "none";
+        });
+    });
+
+    // Countdown Timer
+    function updateCountdown() {
+        const countdownElement = document.querySelector(".countdown");
+        if (!countdownElement) {
+            console.log("Countdown element not found");
+            return;
+        }
+
+        const deadline = new Date(countdownElement.dataset.deadline).getTime();
+        const now = new Date().getTime();
+        const timeLeft = deadline - now;
+
+        if (timeLeft < 0) {
+            countdownElement.textContent = "Competition Closed!";
+            console.log("Competition Deadline Passed");
+            return;
+        }
+
+        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+        countdownElement.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    // Load More Competitions
+    const loadMoreButton = document.querySelector(".load-more");
+    const hiddenCompetitions = document.querySelectorAll(".competition-card.hidden");
+
+    loadMoreButton.addEventListener("click", function () {
+        console.log("Load More Clicked");
+        hiddenCompetitions.forEach(card => card.classList.remove("hidden"));
+        loadMoreButton.style.display = "none"; // Hide the button
+    });
+
+    // Comment Submission
+    const commentInput = document.querySelector("#comment-text");
+    const postCommentButton = document.querySelector("#post-comment");
+    const commentsContainer = document.querySelector("#comments-container");
+
+    postCommentButton.addEventListener("click", function () {
+        const commentText = commentInput.value.trim();
+        if (commentText) {
+            console.log("New Comment Posted:", commentText);
+            const commentElement = document.createElement("p");
+            commentElement.textContent = commentText;
+            commentsContainer.appendChild(commentElement);
+            commentInput.value = ""; // Clear the input field
+        }
+    });
+});

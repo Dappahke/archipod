@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
     <header>
         <nav class="nav-menu">
             <ul>
@@ -23,12 +24,75 @@
     </header>
 
     <main>
-        <h1>Competitions</h1>
-        <p>Stay updated with the latest architecture competitions and challenges.</p>
+
+        <!-- Hero Section -->
+        <section class="competitions-hero">
+            <h1>Competitions</h1>
+            <p>Stay updated with the latest architecture competitions and challenges.</p>
+        </section>
+
+        <!-- Competition Listings -->
+        <section class="competition-list">
+            <h2>Ongoing Competitions</h2>
+
+            <input type="text" class="search-bar" placeholder="Search Competitions...">
+
+            <div class="competition-card">
+                <span class="tag">Student Competition</span>
+                <h3>Urban Design Challenge</h3>
+                <p>Design a sustainable urban space for the future.</p>
+                <a href="#">View Details</a>
+            </div>
+
+            <div class="competition-card">
+                <span class="tag">Professional Competition</span>
+                <h3>Futuristic Skyscraper</h3>
+                <p>Create an innovative skyscraper concept using eco-friendly materials.</p>
+                <a href="#">View Details</a>
+            </div>
+
+            <div class="competition-card hidden">...</div>
+            <button class="load-more">Load More</button>
+        </section>
+
+        <!-- Leaderboard -->
+        <section class="leaderboard">
+            <h2>Leaderboard</h2>
+            <ul>
+                <li>1. Alex Smith - 95 Points</li>
+                <li>2. Jamie Doe - 90 Points</li>
+                <li>3. Chris Johnson - 85 Points</li>
+            </ul>
+        </section>
+
+        <!-- Submission Form -->
+        <section class="submit-competition">
+            <h2>Submit Your Competition Entry</h2>
+            <form id="competition-form">
+                <input type="text" id="competition-title" placeholder="Project Title" required>
+                <textarea id="competition-description" placeholder="Short Description" required></textarea>
+                <input type="file" id="competition-image" accept="image/*" required>
+                <button type="submit">Submit Entry</button>
+            </form>
+        </section>
+
+        <!-- Countdown Timer -->
+        <p class="countdown" data-deadline="2025-03-30T23:59:59"></p>
+
+        <!-- Comments Section -->
+        <section class="competition-comments">
+            <h2>Comments</h2>
+            <textarea id="comment-text" placeholder="Write a comment..."></textarea>
+            <button id="post-comment">Post Comment</button>
+            <div id="comments-container"></div>
+        </section>
+        <script src="script.js"></script>-
+
     </main>
 
     <footer>
         <p>&copy; 2025 The ArchiPod. All rights reserved.</p>
     </footer>
+
 </body>
 </html>

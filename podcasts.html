@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Podcasts | The ArchiPod</title>
+    <title>Podcast | The ArchiPod</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -21,12 +21,68 @@
             </ul>
         </nav>
     </header>
-
+    
     <main>
-        <h1>The ArchiPod Episodes</h1>
-        <p>Listen to the latest episodes of The ArchiPod and explore discussions on architecture.</p>
-    </main>
+        <section class="podcast-hero">
+            <h1>The ArchiPod</h1>
+            <p>Exploring the world of architecture through conversations with experts.</p>
+        </section>
 
+        <section class="latest-episodes">
+            <h2>Latest Episodes</h2>
+            <div class="episode-grid">
+                <div class="episode-card">
+                    <img src="assets/images/Architecture Minimaliste (1).jpg" alt="Episode 1">
+                    <h3>Episode 1: Sustainable Design</h3>
+                    <p>We discuss eco-friendly architecture with John Doe.</p>
+                    <audio controls>
+                        <source src="episode1.mp3" type="audio/mpeg">
+                    </audio>
+                </div>
+                <div class="episode-card">
+                    <img src="assets/images/1409f466-beeb-4e6c-9ba6-52caea54546b.jpg" alt="Episode 2">
+                    <h3>Episode 2: The Future of Cities</h3>
+                    <p>A talk with Jane Smith about urban planning.</p>
+                    <audio controls>
+                        <source src="episode2.mp3" type="audio/mpeg">
+                    </audio>
+                </div>
+            </div>
+        </section>
+
+        <section class="subscribe">
+            <h2>Subscribe to The ArchiPod</h2>
+            <div class="subscribe-links">
+                <a href="#" class="spotify">Listen on Spotify</a>
+                <a href="#" class="apple">Listen on Apple Podcasts</a>
+                <a href="#" class="google">Listen on Google Podcasts</a>
+            </div>
+        </section>
+
+        <section class="guest-spotlight">
+            <h2>Guest Spotlights</h2>
+            <div class="guest-grid">
+                <div class="guest-card">
+                    <img src="assets/images/noel.png" alt="Noel Syambi">
+                    <h3>Noel Syambi</h3>
+                    <p>Architect specializing in green buildings.</p>
+                </div>
+                <div class="guest-card">
+                    <img src="guest2.jpg" alt="Jane Smith">
+                    <h3>Jane Smith</h3>
+                    <p>Urban planner shaping future cities.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="podcast-comments">
+            <h2>Leave a Comment</h2>
+            <textarea id="comment-text" placeholder="Write your thoughts..."></textarea>
+            <button id="post-comment">Post Comment</button>
+            <div id="comments-container"></div>
+        </section>
+    </main>
+    
     <footer>
         <p>&copy; 2025 The ArchiPod. All rights reserved.</p>
     </footer>

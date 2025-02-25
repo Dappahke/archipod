@@ -14,7 +14,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: white;
+    background-color: rgb(61, 29, 29);
     padding: 15px 50px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     position: fixed;
@@ -719,4 +719,544 @@ footer {
     text-align: center;
     padding: 15px 0;
     margin-top: 30px;
+}
+/* Hero Section */
+.competitions-hero {
+    text-align: center;
+    padding: 50px;
+    background-color: #ffffff;
+    color: rgb(14, 9, 9);
+    animation: fadeIn 1.2s ease-in-out;
+}
+
+.competitions-hero h1 {
+    font-size: 2.5rem;
+}
+
+/* Competition List */
+.competition-list {
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.competition-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, opacity 0.5s ease-in-out;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-in-out forwards;
+}
+
+.competition-card h3 {
+    color: #e66b00;
+}
+
+.competition-card a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #ff7f00;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.competition-card a:hover {
+    color: #e66b00;
+}
+
+.competition-card:hover {
+    transform: scale(1.05);
+}
+
+/* Hidden Competitions */
+.hidden {
+    display: none;
+}
+
+/* Load More Button */
+.load-more {
+    display: block;
+    margin: 30px auto;
+    padding: 10px 20px;
+    background-color: #e66b00;
+    color: white;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: transform 0.2s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.load-more:hover {
+    background-color: #ff7f00;
+}
+
+.load-more:active {
+    transform: scale(0.95);
+}
+
+/* Leaderboard */
+.leaderboard {
+    text-align: center;
+    padding: 20px;
+}
+
+.leaderboard ul {
+    list-style: none;
+    padding: 0;
+}
+
+.leaderboard li {
+    padding: 10px;
+    font-size: 1.2rem;
+    color: #e66b00;
+}
+
+/* Search Bar */
+.search-bar {
+    display: block;
+    width: 80%;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 10px;
+    border: 2px solid #e66b00;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+/* Countdown Timer */
+.countdown {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #e66b00;
+    margin-top: 20px;
+}
+
+/* Comments Section */
+.competition-comments {
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+    padding: 20px;
+}
+
+#comment-text {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #e66b00;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+#post-comment {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #e66b00;
+    color: white;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+#post-comment:hover {
+    background-color: #ff7f00;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.podcast-hero {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: white;
+}
+
+.podcast-hero h1 {
+    color: #e66b00;
+    font-size: 36px;
+}
+
+.podcast-hero p {
+    font-size: 18px;
+    color: #222;
+}
+
+.latest-episodes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 40px;
+}
+
+.episode-card {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.episode-card h3 {
+    color: #e66b00;
+}
+
+.episode-card a {
+    text-decoration: none;
+    color: #ff7f00;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.episode-card a:hover {
+    color: #e66b00;
+}
+
+.audio-player {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.subscribe-links {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.subscribe-links a {
+    text-decoration: none;
+    margin: 0 10px;
+    padding: 10px 20px;
+    background: #e66b00;
+    color: white;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.subscribe-links a:hover {
+    background: #ff7f00;
+}
+
+.guest-spotlight {
+    padding: 40px;
+    text-align: center;
+    background: #f9f9f9;
+}
+
+.comments-section {
+    padding: 40px;
+}
+
+.comments-section textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.comments-section button {
+    background: #e66b00;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+.comments-section button:hover {
+    background: #ff7f00;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #222;
+    color: white;
+}
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    color: #e66b00;
+    font-size: 2.5em;
+}
+
+p {
+    font-size: 1.2em;
+}
+
+.contact-form {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.contact-form button {
+    background: #e66b00;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.contact-form button:hover {
+    background: #ff7f00;
+}
+
+.social-links {
+    margin-top: 20px;
+}
+
+.social-links a {
+    text-decoration: none;
+    margin: 10px;
+    display: inline-block;
+}
+
+.social-links img {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s;
+}
+
+.social-links img:hover {
+    transform: scale(1.1);
+}
+/* General Styles */
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    color: #222;
+    opacity: 0;
+    animation: fadeIn 1.2s ease-in forwards;
+}
+
+/* Page Fade-In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Header Styling */
+header {
+    background-color: #e66b00;
+    padding: 20px;
+    text-align: center;
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards 0.5s;
+}
+
+header h1 {
+    color: white;
+    font-size: 2rem;
+}
+
+/* About Section */
+.about-section {
+    text-align: center;
+    padding: 50px 20px;
+    max-width: 900px;
+    margin: auto;
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards 0.8s;
+}
+
+.about-section h2 {
+    color: #e66b00;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.about-section p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #444;
+}
+
+/* Meet the Team */
+.team-section {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+}
+
+.team-section h2 {
+    color: #ff7f00;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* Masonry Grid for Team Members */
+.team-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    column-count: 3;
+    column-gap: 20px;
+    padding: 20px;
+}
+
+.team-member {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    width: 250px;
+    display: inline-block;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    animation: fadeInUp 1s ease-in forwards;
+}
+
+/* Staggered Animation */
+.team-member:nth-child(1) { animation-delay: 0.2s; }
+.team-member:nth-child(2) { animation-delay: 0.4s; }
+.team-member:nth-child(3) { animation-delay: 0.6s; }
+.team-member:nth-child(4) { animation-delay: 0.8s; }
+.team-member:nth-child(5) { animation-delay: 1s; }
+
+/* Fade In + Lift Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Team Member Images */
+.team-member img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    border: 3px solid #e66b00;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Image Hover Effect */
+.team-member:hover img {
+    transform: rotate(5deg) scale(1.05);
+}
+
+/* Team Member Text */
+.team-member h3 {
+    color: #222;
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+}
+
+.team-member p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #222;
+    color: white;
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards 1.2s;
+}
+/* Style for Noel's image */
+.noel-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0;
+    overflow: hidden;
+}
+
+.noel-image {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%; /* Circular image */
+    object-fit: cover;
+    border: 5px solid #e66b00;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    animation: fadeInZoom 1s ease-in-out;
+}
+
+/* Hover Effect */
+.noel-image:hover {
+    transform: scale(1.1) rotate(3deg);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Entrance Animation */
+@keyframes fadeInZoom {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
