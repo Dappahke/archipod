@@ -29,6 +29,22 @@
         <p>Explore our exclusive merchandise inspired by architecture and design.</p>
     </section>
 
+    <!-- Search & Filters -->
+    <div class="filters">
+       <input type="text" id="search-bar" placeholder="Search products...">
+       <select id="category-filter">
+           <option value="all">All Categories</option>
+           <option value="shirts">Shirts</option>
+           <option value="hoodies">Hoodies</option>
+           <option value="caps">Caps</option>
+       </select>
+       <select id="sort-filter">
+           <option value="default">Sort By</option>
+           <option value="price-low">Price: Low to High</option>
+           <option value="price-high">Price: High to Low</option>
+       </select>
+    </div>
+
     <section class="filter-buttons">
         <button class="filter-btn active" data-category="all">All</button>
         <button class="filter-btn" data-category="apparel">Apparel</button>
@@ -70,6 +86,7 @@
     <footer>
         <p>&copy; 2025 The ArchiPod. All rights reserved.</p>
     </footer>
-    </script>  
+
+    <script src="script.js"></script>
 </body>
 </html>

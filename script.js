@@ -5,24 +5,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     filterButtons.forEach((button) => {
         button.addEventListener("click", function () {
-            // Remove "active" class from all buttons
             filterButtons.forEach((btn) => btn.classList.remove("active"));
-
-            // Add "active" class to the clicked button
             this.classList.add("active");
 
-            // Get the category from the clicked button
             const category = this.getAttribute("data-category");
 
-            // Show/Hide news cards based on category
             newsCards.forEach((card) => {
                 const cardCategory = card.getAttribute("data-category");
-
-                if (category === "all" || cardCategory === category) {
-                    card.style.display = "flex"; // Show matching category
-                } else {
-                    card.style.display = "none"; // Hide non-matching categories
-                }
+                card.style.display = (category === "all" || cardCategory === category) ? "flex" : "none";
             });
         });
     });
@@ -33,22 +23,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     merchFilterButtons.forEach((button) => {
         button.addEventListener("click", function () {
-            // Remove active class from all buttons
             merchFilterButtons.forEach((btn) => btn.classList.remove("active"));
-
-            // Add active class to the clicked button
             this.classList.add("active");
 
-            // Get the category from the button
             const category = this.getAttribute("data-category");
 
-            // Show/Hide merchandise items based on category
             merchItems.forEach((item) => {
-                if (category === "all" || item.classList.contains(category)) {
-                    item.style.display = "flex"; // Use flex for layout
-                } else {
-                    item.style.display = "none";
-                }
+                item.style.display = (category === "all" || item.classList.contains(category)) ? "flex" : "none";
             });
         });
     });
@@ -57,15 +38,46 @@ document.addEventListener("DOMContentLoaded", function () {
     const menuIcon = document.querySelector(".menu-icon");
     const navMenu = document.querySelector(".nav-menu ul");
 
-    menuIcon.addEventListener("click", function () {
-        navMenu.classList.toggle("show");
+    if (menuIcon) {
+        menuIcon.addEventListener("click", function () {
+            navMenu.classList.toggle("show");
+        });
+    }
+
+    // Upvote Button - Avoid Duplicate Listeners
+    document.querySelectorAll('.upvote-btn').forEach(button => {
+        button.addEventListener('click', function () {
+            let countSpan = this.querySelector('.upvote-count');
+            let count = parseInt(countSpan.textContent) + 1;
+            countSpan.textContent = count;
+        });
     });
+
+    // Like Button - Firebase Update
+    document.querySelectorAll(".like-btn").forEach(button => {
+        button.addEventListener("click", function () {
+            let projectId = this.dataset.id;
+            likeProject(projectId);
+        });
+    });
+
+    // Category Filter
+    const categoryFilter = document.getElementById("category-filter");
+    if (categoryFilter) {
+        categoryFilter.addEventListener("change", function () {
+            let selectedCategory = this.value;
+            let projectCards = document.querySelectorAll(".project-card");
+
+            projectCards.forEach(card => {
+                card.style.display = (selectedCategory === "all" || card.dataset.category === selectedCategory) ? "block" : "none";
+            });
+        });
+    }
 });
 
 // M-Pesa Payment Function
 function initiateMpesa(amount) {
     let phone = prompt("Enter your M-Pesa number:");
-
     if (phone) {
         fetch("mpesa.php", {
             method: "POST",
@@ -80,3 +92,97 @@ function initiateMpesa(amount) {
         .catch(error => console.error("Error:", error));
     }
 }
+
+// Initialize Map
+var map = L.map('projects-map').setView([0.0236, 37.9062], 6); // Kenya Centered
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap contributors'
+}).addTo(map);
+
+// Sample Project Locations
+var projects = [
+    { name: "Minimalist Loft", coords: [-1.2921, 36.8219] }, // Nairobi
+    { name: "Eco Villa", coords: [0.2832, 34.7523] } // Kisumu
+];
+
+projects.forEach(project => {
+    L.marker(project.coords).addTo(map).bindPopup(`<b>${project.name}</b>`);
+});
+
+// Firebase Firestore - Handling Projects
+import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+import { deleteDoc, getDocs, setDoc, doc, collection, addDoc, serverTimestamp, updateDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+const auth = getAuth();
+const storage = getStorage(app);
+
+// Sign Up
+document.getElementById("signup-form")?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    let email = document.getElementById("signup-email").value;
+    let password = document.getElementById("signup-password").value;
+
+    try {
+        await createUserWithEmailAndPassword(auth, email, password);
+        alert("Signup successful!");
+    } catch (error) {
+        alert(error.message);
+    }
+});
+
+// Login
+document.getElementById("login-form")?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    let email = document.getElementById("login-email").value;
+    let password = document.getElementById("login-password").value;
+
+    try {
+        await signInWithEmailAndPassword(auth, email, password);
+        alert("Login successful!");
+    } catch (error) {
+        alert(error.message);
+    }
+});
+
+// Logout
+document.getElementById("logout-btn")?.addEventListener("click", async () => {
+    await signOut(auth);
+    alert("Logged out!");
+});
+
+// Handle Project Submission
+document.getElementById("project-form")?.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    let projectName = document.getElementById("project-name").value;
+    let projectDescription = document.getElementById("project-description").value;
+    let projectLocation = document.getElementById("project-location").value;
+    let projectFile = document.getElementById("project-image").files[0];
+
+    if (!projectFile) {
+        alert("Please upload an image or video.");
+        return;
+    }
+
+    let storageRef = ref(storage, `projects/${projectFile.name}`);
+    await uploadBytes(storageRef, projectFile);
+    let fileURL = await getDownloadURL(storageRef);
+
+    await setDoc(doc(db, "projects", projectName), {
+        name: projectName,
+        description: projectDescription,
+        location: projectLocation,
+        upvotes: 0,
+        fileURL: fileURL,
+        status: "pending"
+    });
+
+    alert("Project submitted!");
+});
+
+// Secure OpenAI API Call - Move to Backend!
+document.getElementById("generate-description")?.addEventListener("click", async function () {
+    alert("This feature is disabled for security reasons. Use a backend API.");
+});

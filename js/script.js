@@ -108,3 +108,22 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+async function loadFeaturedProjects() {
+    let querySnapshot = await getDocs(collection(db, "projects"));
+    document.getElementById("featured-projects-container").innerHTML = "";
+
+    querySnapshot.forEach(doc => {
+        let project = doc.data();
+        if (project.featured) {
+            document.getElementById("featured-projects-container").innerHTML += `
+                <div class="project-card">
+                    <h2>${project.name}</h2>
+                    <p>${project.description}</p>
+                    <span>🌟 Featured</span>
+                </div>
+            `;
+        }
+    });
+}
+
+loadFeaturedProjects();

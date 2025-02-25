@@ -9,6 +9,8 @@
 <body>
     <header>
         <nav class="nav-menu">
+            <div class="logo">The ArchiPod</div>
+            <div class="menu-icon">☰</div>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="news.html">News</a></li>
@@ -22,13 +24,130 @@
         </nav>
     </header>
 
-    <main>
-        <h1>Our Projects</h1>
-        <p>Discover our latest architectural innovations.</p>
-    </main>
+    <section class="merch-hero">
+         <!-- Hero Section -->
+    <section class="projects-hero">
+        <h1>Our Architectural Projects</h1>
+        <p>Explore innovative designs, sustainable structures, and creative spaces.</p>
+    </section>
 
-    <footer>
-        <p>&copy; 2025 The ArchiPod. All rights reserved.</p>
-    </footer>
+
+    <!-- Filters -->
+    <div class="filters">
+        <input type="text" id="search-bar" placeholder="Search projects...">
+        <select id="category-filter">
+            <option value="all">All Categories</option>
+            <option value="residential">Residential</option>
+            <option value="commercial">Commercial</option>
+            <option value="interior">Interior Design</option>
+            <option value="conceptual">Conceptual</option>
+        </select>
+        <select id="sort-filter">
+            <option value="latest">Newest First</option>
+            <option value="popular">Most Popular</option>
+            <option value="upvotes-high">Most Upvoted</option>
+        </select>
+    </div>
+
+    <!-- Projects Grid -->
+    <section class="projects-grid">
+        <div class="project-card">
+            <img src="assets/images/download.jpg" alt="Minimalist Urban Loft">
+            <h2>Minimalist Urban Loft</h2>
+            <p>Modern interior renovation with sustainable materials.</p>
+            <a href="project-detail.html">View Project</a>
+
+            <!-- YouTube Embed -->
+            <div class="video-container">
+                <iframe width="100%" height="250" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+            </div>
+
+            <!-- Sketchfab 3D Model Embed -->
+            <div class="model-container">
+                <iframe width="100%" height="400" src="https://sketchfab.com/models/MODEL_ID/embed" frameborder="0" allowfullscreen></iframe>
+            </div>
+
+            <!-- Upvote Button -->
+            <div class="upvote-container">
+                <button class="upvote-btn" data-id="project1">👍 <span class="upvote-count">0</span></button>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <img src="assets/images/51e5d23a-8abb-40d8-9c36-ca48fdde4c66.jpg" alt="Eco-Friendly Villa">
+            <h2>Eco-Friendly Villa</h2>
+            <p>Energy-efficient house with smart technology.</p>
+            <a href="project-detail.html">View Project</a>
+        </div>
+    </section>
+
+    <!-- Submit Your Project Section -->
+    <section class="submit-project">
+        <h2>Submit Your Project</h2>
+        <form id="project-form">
+            <input type="text" id="project-name" placeholder="Project Name" required>
+            <select>
+                <option value="residential">Residential</option>
+                <option value="commercial">Commercial</option>
+                <option value="interior">Interior Design</option>
+                <option value="conceptual">Conceptual</option>
+            </select>
+            <textarea id="project-description" placeholder="Short Project Description" required></textarea>
+            <input type="text" id="project-location" placeholder="Location (City, Country)">
+            <input type="file" id="project-image" accept="image/*,video/*">
+            <button type="submit">Submit Project</button>
+        </form>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews">
+        <h2>Project Reviews</h2>
+        <div id="reviews-container"></div>
+        <form id="review-form">
+            <textarea id="review-text" placeholder="Write a review..." required></textarea>
+            <select id="review-rating">
+                <option value="1">⭐</option>
+                <option value="2">⭐⭐</option>
+                <option value="3">⭐⭐⭐</option>
+                <option value="4">⭐⭐⭐⭐</option>
+                <option value="5">⭐⭐⭐⭐⭐</option>
+            </select>
+            <button type="submit">Submit Review</button>
+        </form>
+    </section>
+
+    <!-- Authentication Section -->
+    <section class="auth-section">
+        <h2>Login</h2>
+        <form id="login-form">
+            <input type="email" id="login-email" placeholder="Email" required>
+            <input type="password" id="login-password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+
+        <h2>Sign Up</h2>
+        <form id="signup-form">
+            <input type="email" id="signup-email" placeholder="Email" required>
+            <input type="password" id="signup-password" placeholder="Password" required>
+            <button type="submit">Sign Up</button>
+        </form>
+
+        <button id="logout-btn">Logout</button>
+    </section>
+
+    <!-- Comments Section -->
+    <div class="comments-section">
+        <h3>Comments</h3>
+        <textarea id="comment-text" placeholder="Write a comment..."></textarea>
+        <button id="post-comment" data-id="{projectId}">Post Comment</button>
+        <div id="comments-container-{projectId}"></div>
+    </div>
+
+    <!-- Social Media Share Buttons -->
+    <div class="share-buttons">
+        <button class="share-btn" data-platform="twitter" data-id="{projectId}">🐦 Twitter</button>
+        <button class="share-btn" data-platform="facebook" data-id="{projectId}">📘 Facebook</button>
+        <button class="share-btn" data-platform="whatsapp" data-id="{projectId}">💬 WhatsApp</button>
+    </div>
 </body>
 </html>
