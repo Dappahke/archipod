@@ -8,21 +8,23 @@
 </head>
 <body>
     <header>
-        <nav class="nav-menu">
+        <nav class="navbar">
             <div class="logo">The ArchiPod</div>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="news.html">News</a></li>
-                <li><a href="merch.html">Merch</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="competitions.html">Competitions</a></li>
-                <li><a href="podcasts.html">Podcasts</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-                <li><a href="about.html">About</a></li>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-item">Home</a></li>
+                <li><a href="news.html" class="nav-item">News</a></li>
+                <li><a href="merch.html" class="nav-item">Merch</a></li>
+                <li><a href="projects.html" class="nav-item">Projects</a></li>
+                <li><a href="competitions.html" class="nav-item">Competitions</a></li>
+                <li><a href="podcasts.html" class="nav-item">Podcasts</a></li>
+                <li><a href="contact.html" class="nav-item">Contact Us</a></li>
+                <li><a href="about.html" class="nav-item">About</a></li>
             </ul>
+    
+            <!-- Hamburger Menu for Mobile -->
+            <div class="burger" onclick="toggleMenu()">☰</div>
         </nav>
     </header>
-
     <section class="news-header">
         <h1>Latest in Architecture</h1>
         <p>Stay updated with the most exciting trends and innovations in architecture.</p>

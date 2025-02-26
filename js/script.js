@@ -1,129 +1,119 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Handle Google Sign-In
-    function handleCredentialResponse(response) {
-        console.log("Encoded JWT ID token: " + response.credential);
-        // Send this token to your server for authentication.
+    console.log("JavaScript Loaded ✅");
+
+    /* ─── 🟠 BURGER MENU TOGGLE ─────────────────────────────────── */
+    const burger = document.querySelector(".burger");
+    const navMenu = document.querySelector("nav ul");
+
+    if (burger && navMenu) {
+        burger.addEventListener("click", function () {
+            navMenu.classList.toggle("active");
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener("click", function (event) {
+            if (!navMenu.contains(event.target) && !burger.contains(event.target)) {
+                navMenu.classList.remove("active");
+            }
+        });
     }
 
-    // Toggle Navigation Menu (Mobile & Burger)
-    const menu = document.querySelector(".nav-menu");
-    const menuToggle = document.getElementById("menu-toggle");
-    const burger = document.querySelector(".burger-menu");
-
-    if ((menuToggle || burger) && menu) {
-        const toggleNav = () => menu.classList.toggle("active");
-
-        if (menuToggle) {
-            menuToggle.addEventListener("click", toggleNav);
-        }
-
-        if (burger) {
-            burger.addEventListener("click", toggleNav);
-        }
+    /* ─── 🔵 MODAL FUNCTIONALITY (Login/Signup) ────────────────── */
+    function openModal(modal) {
+        modal.style.display = "flex";
     }
 
-    // Modal Handling
-    const loginModal = document.getElementById("loginModal");
-    const signupModal = document.getElementById("signupModal");
+    function closeModal(modal) {
+        modal.style.display = "none";
+    }
+
     const loginBtn = document.getElementById("login-btn");
+    const loginModal = document.getElementById("loginModal");
     const closeLogin = document.getElementById("closeLogin");
-    const closeSignup = document.getElementById("closeSignup");
+    const signupModal = document.getElementById("signupModal");
     const showSignup = document.getElementById("showSignup");
+    const closeSignup = document.getElementById("closeSignup");
     const showLogin = document.getElementById("showLogin");
 
-    if (loginBtn && loginModal) {
-        loginBtn.addEventListener("click", () => {
-            loginModal.style.display = "block";
+    if (loginBtn && loginModal && closeLogin) {
+        loginBtn.addEventListener("click", function () {
+            openModal(loginModal);
+        });
+
+        closeLogin.addEventListener("click", function () {
+            closeModal(loginModal);
+        });
+
+        window.addEventListener("click", function (event) {
+            if (event.target === loginModal) {
+                closeModal(loginModal);
+            }
         });
     }
 
-    if (closeLogin && loginModal) {
-        closeLogin.addEventListener("click", () => {
-            loginModal.style.display = "none";
-        });
-    }
-
-    if (showSignup && signupModal) {
-        showSignup.addEventListener("click", (event) => {
+    if (showSignup && signupModal && closeSignup && showLogin) {
+        showSignup.addEventListener("click", function (event) {
             event.preventDefault();
-            if (loginModal) loginModal.style.display = "none";
-            signupModal.style.display = "block";
+            closeModal(loginModal);
+            openModal(signupModal);
         });
-    }
 
-    if (closeSignup && signupModal) {
-        closeSignup.addEventListener("click", () => {
-            signupModal.style.display = "none";
+        closeSignup.addEventListener("click", function () {
+            closeModal(signupModal);
         });
-    }
 
-    if (showLogin && loginModal) {
-        showLogin.addEventListener("click", (event) => {
+        showLogin.addEventListener("click", function (event) {
             event.preventDefault();
-            if (signupModal) signupModal.style.display = "none";
-            loginModal.style.display = "block";
+            closeModal(signupModal);
+            openModal(loginModal);
+        });
+
+        window.addEventListener("click", function (event) {
+            if (event.target === signupModal) {
+                closeModal(signupModal);
+            }
         });
     }
 
-    // Close Modal When Clicking Outside
-    window.addEventListener("click", (event) => {
-        if (event.target === loginModal) {
-            loginModal.style.display = "none";
-        }
-        if (event.target === signupModal) {
-            signupModal.style.display = "none";
-        }
+    /* ─── 🟢 SLIDER FUNCTIONALITY ───────────────────────────────── */
+    let currentIndex = 0;
+    const projects = document.querySelectorAll('.slider-item');
+    
+    setInterval(() => {
+        currentIndex = (currentIndex + 1) % projects.length;
+        updateSlider();
+    }, 5000);
+
+    function updateSlider() {
+        projects.forEach((item, index) => {
+            item.style.transform = `translateX(-${currentIndex * 100}%)`;
+        });
+    }
+
+    /* ─── ✨ WELCOME ANIMATION ON LINK CLICK ───────────────────── */
+    const links = document.querySelectorAll("a");
+    const body = document.body;
+
+    links.forEach(link => {
+        link.addEventListener("click", function (event) {
+            event.preventDefault(); // Prevent default link behavior
+            
+            // Create the welcome text element
+            const welcomeText = document.createElement("div");
+            welcomeText.innerText = "Welcome to The ArchiPod";
+            welcomeText.classList.add("welcome-text");
+            body.appendChild(welcomeText);
+
+            // Animate the text
+            setTimeout(() => {
+                welcomeText.classList.add("fade-out");
+            }, 2000); // Delay before fade out
+
+            // Remove the element after animation
+            setTimeout(() => {
+                welcomeText.remove();
+                window.location.href = link.href; // Redirect after animation
+            }, 3000);
+        });
     });
-
-    // Slider Functionality
-    let currentSlide = 0;
-    const slides = document.querySelectorAll(".slide");
-
-    function showSlide(index) {
-        slides.forEach((slide, i) => {
-            slide.style.display = i === index ? "block" : "none";
-        });
-    }
-
-    function nextSlide() {
-        if (slides.length > 0) {
-            currentSlide = (currentSlide + 1) % slides.length;
-            showSlide(currentSlide);
-        }
-    }
-
-    if (slides.length > 0) {
-        setInterval(nextSlide, 5000);
-        showSlide(currentSlide);
-    }
-
-    // Search Button Functionality (Placeholder)
-    const searchBtn = document.getElementById("search-btn");
-    const searchInput = document.getElementById("search-input");
-
-    if (searchBtn && searchInput) {
-        searchBtn.addEventListener("click", () => {
-            const query = searchInput.value;
-            alert(`Search functionality not implemented yet. You searched for: "${query}"`);
-        });
-    }
 });
-async function loadFeaturedProjects() {
-    let querySnapshot = await getDocs(collection(db, "projects"));
-    document.getElementById("featured-projects-container").innerHTML = "";
-
-    querySnapshot.forEach(doc => {
-        let project = doc.data();
-        if (project.featured) {
-            document.getElementById("featured-projects-container").innerHTML += `
-                <div class="project-card">
-                    <h2>${project.name}</h2>
-                    <p>${project.description}</p>
-                    <span>🌟 Featured</span>
-                </div>
-            `;
-        }
-    });
-}
-
-loadFeaturedProjects();

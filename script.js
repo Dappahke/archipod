@@ -257,3 +257,19 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+function toggleMenu() {
+    const navLinks = document.querySelector(".nav-links");
+    navLinks.classList.toggle("show");
+}
+
+// Highlight active page
+document.addEventListener("DOMContentLoaded", function() {
+    const currentLocation = window.location.href;
+    const navItems = document.querySelectorAll(".nav-links a");
+
+    navItems.forEach(item => {
+        if (item.href === currentLocation) {
+            item.classList.add("active");
+        }
+    });
+});
