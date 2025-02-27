@@ -1478,3 +1478,99 @@ header {
     flex-wrap: wrap;
     gap: 20px;
 }
+.team-members {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
+    gap: 20px; /* Space between grid items */
+}
+
+.team-member {
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.team-member img {
+    width: 100%; /* Responsive width */
+    height: auto;
+    border-radius: 8px; /* Soft rounded corners */
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .team-members {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjusts for smaller screens */
+    }
+}
+.founder-info {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Bigger image */
+    align-items: center;
+    gap: 30px; /* Space between image and text */
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.founder-info img {
+    width: 100%;
+    max-width: 450px; /* Ensures image is larger */
+    height: auto;
+    border-radius: 10px; /* Soft edges */
+    object-fit: cover;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .founder-info {
+        grid-template-columns: 1fr; /* Stack on smaller screens */
+        text-align: center;
+    }
+
+    .founder-info img {
+        max-width: 100%;
+    }
+}
+/* Hero Section Styling */
+.about-hero {
+    position: relative;
+    background-image: url('assets/images/your-hero-image.jpg'); /* Replace with your image path */
+    background-size: cover; /* Ensures the image covers the entire section */
+    background-position: center; /* Centers the image */
+    height: 500px; /* Adjust height as needed */
+    color: white; /* White text for contrast */
+    text-align: center; /* Centers the text horizontally */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically centers the text */
+    padding: 20px;
+}
+
+/* Optional: Dark overlay to improve text readability */
+.about-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4); /* Semi-transparent black */
+    z-index: -1; /* Ensures the overlay is behind the text */
+}
+
+/* Hero Section Heading */
+.about-hero h1 {
+    font-size: 3.5rem; /* Adjust size as needed */
+    margin: 0;
+    font-weight: bold; /* Bold text for prominence */
+    letter-spacing: 2px; /* Optional: adds letter spacing for a clean look */
+}
+
+/* Hero Section Subheading */
+.about-hero p {
+    font-size: 1.25rem; /* Adjust size as needed */
+    margin-top: 10px;
+    font-weight: 300; /* Lighter font weight for the paragraph */
+}

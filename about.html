@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | The ArchiPod</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- AOS Animation Library -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -21,75 +29,90 @@
                 <li><a href="contact.html" class="nav-item">Contact Us</a></li>
                 <li><a href="about.html" class="nav-item">About</a></li>
             </ul>
-    
             <!-- Hamburger Menu for Mobile -->
             <div class="burger" onclick="toggleMenu()">☰</div>
         </nav>
     </header>
         
     <main>
-        <section class="about-hero">
-            <h1>About The ArchiPod</h1>
-            <p>Exploring architecture, innovation, and sustainability—one episode at a time.</p>
+        <!-- Hero Section -->
+        <section class="about-hero" style="background-image: url('assets/images/wambui-ESmWYVFII9I-unsplash.jpg');">
+            <h1 style="text-align: center; font-size: 2.5rem; color: #222;">Welcome to The ArchiPod</h1>
+            <p style="text-align: center; font-size: 1.2rem; color: #555;">Where architecture, innovation, and sustainability meet—one episode at a time.</p>
         </section>
 
-        <section class="founder">
-            <h2>Meet Our Founder</h2>
-            <div class="founder-info">
-                <img src="assets/images/IMG-20220601-WA0000.jpg" alt="Noel - Founder of The ArchiPod">
-                <div class="founder-text">
-                    <h3>Noel</h3>
-                    <p>Noel is a passionate architect and design enthusiast who founded <b>The ArchiPod</b> to bring conversations about architecture, innovation, and sustainability to a global audience. With a vision to bridge the gap between traditional architecture and future-forward design, Noel curates insightful discussions with industry leaders, emerging architects, and design thinkers.</p>
+        <!-- About Section -->
+        <section class="about-description" style="max-width: 800px; margin: 0 auto; padding: 40px;">
+            <h2 style="font-size: 2rem; color: #222; margin-bottom: 20px;">About The ArchiPod</h2>
+            <p style="font-size: 1.1rem; line-height: 1.6; color: #555;">Welcome to <strong>The ArchiPod</strong>, the podcast that brings you deep into the world of architecture, design, and creativity. Here, we uncover the stories that shape our built environment—from revolutionary design ideas to sustainable innovations. Our mission? To educate, inspire, and spark conversations about architecture's impact on our world.</p>
+        </section>
+
+        <!-- Founder Section -->
+        <section class="founder" style="background-color: #f4f4f4; padding: 40px 0;">
+            <h2 style="font-size: 2rem; text-align: center; color: #222;">Meet Our Founder</h2>
+            <div class="founder-info" style="display: flex; justify-content: center; align-items: center; margin-top: 30px; flex-direction: column; text-align: center;">
+                <img src="assets/images/Noel Syambi.JPG" alt="Noel - Founder of The ArchiPod" style="border-radius: 50%; width: 200px; height: 200px; margin-bottom: 20px;">
+                <div class="founder-text" style="max-width: 600px;">
+                    <h3 style="font-size: 2rem; color: #222;">Noel Syambi</h3>
+                    <p style="font-size: 1.1rem; color: #555;"><strong>Founder & Host of The ArchiPod | Architectural Designer</strong></p>
+                    <p style="font-size: 1.1rem; line-height: 1.6; color: #555;">Noel is a passionate <strong>architectural designer, researcher, and storyteller</strong> with a deep interest in sustainability and innovation. His work revolves around designing spaces that are not only functional and beautiful but also environmentally conscious.</p>
+                    <p style="font-size: 1.1rem; line-height: 1.6; color: #555;">Through <strong>The ArchiPod</strong>, Noel aims to create a platform where architecture is brought to life in a way that’s engaging and accessible to everyone—whether you're a designer or just someone who appreciates good design.</p>
+
+                    <h4 style="font-size: 1.5rem; color: #222;">🔹 Background & Expertise</h4>
+                    <p style="font-size: 1.1rem; color: #555;">Noel’s expertise spans across various fields, including:</p>
+                    <ul style="font-size: 1.1rem; color: #555; padding-left: 20px;">
+                        <li>🏗 <strong>Innovative architectural design and visualization</strong></li>
+                        <li>🌍 <strong>Sustainable urban planning and development</strong></li>
+                        <li>🎙 <strong>Architecture storytelling through podcasts</strong></li>
+                        <li>🖥 <strong>The role of technology in shaping the future of architecture</strong></li>
+                    </ul>
+
+                    <h4 style="font-size: 1.5rem; color: #222;">🎙 Why The ArchiPod?</h4>
+                    <p style="font-size: 1.1rem; line-height: 1.6; color: #555;">Noel founded <strong>The ArchiPod</strong> to bring <strong>architectural conversations to the forefront</strong> and create a space where architects and designers can share their knowledge and ideas in an inspiring, accessible way.</p>
+
+                    <h4 style="font-size: 1.5rem; color: #222;">🌱 Vision for the Future</h4>
+                    <p style="font-size: 1.1rem; line-height: 1.6; color: #555;">Noel envisions a world where architecture drives innovation and sustainability. Through <strong>The ArchiPod</strong>, he hopes to challenge industry norms, introduce new ideas, and inspire a global community of architects and thinkers who are passionate about creating positive change in the world.</p>
                 </div>
             </div>
         </section>
 
-        <section class="team">
-            <h2>Meet the Team</h2>
-            <div class="team-members">
-                <div class="team-member">
-                    <img src="assets/images/WhatsApp_Image_2024-01-22_at_10.11.41-removebg-preview.png" alt="Sarah - Content Director">
-                    <h3>Jere Ibra</h3>
-                    <p>Content Director</p>
-                    <p>Sarah ensures every episode is engaging, insightful, and well-researched. She brings a wealth of knowledge in architectural journalism.</p>
+        <!-- Meet the Team Section -->
+        <section class="team" style="padding: 40px 0; background-color: #f4f4f4;">
+            <h2 style="font-size: 2rem; text-align: center; color: #222;">Meet the Team</h2>
+            <div class="team-members" style="display: flex; justify-content: space-around; flex-wrap: wrap; margin-top: 30px;">
+                <div class="team-member" style="text-align: center; margin-bottom: 30px; width: 30%;">
+                    <img src="assets/images/Jere Ibrah.JPG" alt="Jere Ibra - Co-Host" style="border-radius: 50%; width: 150px; height: 150px;">
+                    <h3 style="font-size: 1.5rem; color: #222; margin-top: 10px;">Jere Ibra</h3>
+                    <p style="font-size: 1.1rem; color: #555;">Co-Host | Architecture Student</p>
+                    <p style="font-size: 1rem; color: #555;">Jere adds a fresh, insightful perspective to the podcast, delving into the academic world of architecture while discussing the practical applications of design. As an architecture student, he is passionate about the future of sustainable design and how architecture shapes our world.</p>
                 </div>
-                <div class="team-member">
-                    <img src="team2.jpg" alt="David - Audio Engineer">
-                    <h3>David Martinez</h3>
-                    <p>Audio Engineer</p>
-                    <p>With years of experience in podcast production, David ensures that each episode sounds crisp, clear, and professional.</p>
+                <div class="team-member" style="text-align: center; margin-bottom: 30px; width: 30%;">
+                    <img src="team2.jpg" alt="David Martinez - Audio Engineer" style="border-radius: 50%; width: 150px; height: 150px;">
+                    <h3 style="font-size: 1.5rem; color: #222; margin-top: 10px;">David Martinez</h3>
+                    <p style="font-size: 1.1rem; color: #555;">Audio Engineer</p>
+                    <p style="font-size: 1rem; color: #555;">David is responsible for making sure every episode sounds pristine. His keen ear for quality sound ensures that all of The ArchiPod’s audio is crisp and clear for listeners to enjoy every conversation without distraction.</p>
                 </div>
-                <div class="team-member">
-                    <img src="team3.jpg" alt="Emily - Marketing Strategist">
-                    <h3>Emily Carter</h3>
-                    <p>Marketing Strategist</p>
-                    <p>Emily oversees branding, social media, and outreach, helping <b>The ArchiPod</b> connect with a global audience.</p>
-                </div>
-                <div class="team-member">
-                    <img src="team4.jpg" alt="Michael - Research Analyst">
-                    <h3>Michael Lee</h3>
-                    <p>Research Analyst</p>
-                    <p>Michael dives deep into industry trends, ensuring that each podcast is backed by facts, case studies, and expert insights.</p>
-                </div>
-                <div class="team-member">
-                    <img src="team5.jpg" alt="Jessica - Community Manager">
-                    <h3>Jessica Williams</h3>
-                    <p>Community Manager</p>
-                    <p>Jessica engages with our listeners, manages discussions, and helps build a thriving community around <b>The ArchiPod</b>.</p>
+                <div class="team-member" style="text-align: center; margin-bottom: 30px; width: 30%;">
+                    <img src="team3.jpg" alt="Emma Lee - Marketing Lead" style="border-radius: 50%; width: 150px; height: 150px;">
+                    <h3 style="font-size: 1.5rem; color: #222; margin-top: 10px;">Emma Lee</h3>
+                    <p style="font-size: 1.1rem; color: #555;">Marketing Lead</p>
+                    <p style="font-size: 1rem; color: #555;">Emma works behind the scenes to make sure The ArchiPod reaches a wider audience. With a background in marketing and design, she ensures the podcast’s message reaches listeners and sponsors alike, growing the community around The ArchiPod.</p>
                 </div>
             </div>
         </section>
 
-        <section class="mission-vision">
-            <h2>Our Mission & Vision</h2>
-            <p><strong>Mission:</strong> To create a platform where architects, designers, and enthusiasts can engage in thought-provoking discussions about the evolving world of architecture.</p>
-            <p><strong>Vision:</strong> To inspire a new generation of architects to design with innovation, sustainability, and purpose.</p>
-        </section>
-        
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2025 The ArchiPod. All rights reserved.</p>
+        </footer>
+
+        <!-- JavaScript -->
+        <script src="js/script.js" defer></script>
+        <!-- Initialize AOS (Animate On Scroll) -->
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        <script>
+          AOS.init();
+        </script>
     </main>
-
-    <footer>
-        <p>&copy; 2025 The ArchiPod. All rights reserved.</p>
-    </footer>
 </body>
 </html>
